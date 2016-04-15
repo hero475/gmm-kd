@@ -1,4 +1,6 @@
 function [FRRValues, FARValues, thresholds] = calcErrorRates(experiments);
+% takes the experiemnts results and return error rates
+
 
 [maxCompNum, numOfTols] = size(experiments);
 [normExperiments] = normalizeExperiments(experiments);

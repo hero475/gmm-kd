@@ -1,6 +1,7 @@
 function [statsAll] = iterativeDigraph(users,trainData);
 % generates digraph statistics of users' GMMs. All GMMs are being generated
-% up to maxCompNum for each user in users using the data in trainData for all possible digraps.
+% up to 5G (GMM with 5 components) for each user in users using the data
+% in trainData for all possible digraps.
 
 numOfUsers = numel(users);
 maxCompNum = 5;
@@ -18,7 +19,7 @@ for ns = 1:length(chars1)
             for ui=1:numOfUsers
                 userId = users{ui};
                 latency = trainData{ui}{ns}{ns2};
-                if(numel(latency)>=40)
+                if(numel(latency)>=10)
                     [mu, sigma, weight, logl, N] = digraphSimple( userId, digraphStr, comp, latency);
                     s = struct('id', userId, 'mu', mu, 'sigma', sigma, 'weight', weight, 'logl', logl, 'N', N);
                     stats{comp,ui} = s;

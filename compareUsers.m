@@ -1,15 +1,15 @@
 function [experiments, tols] = compareUsers(statsAll, users, testData);
 
-% compares fromUsers with toUsers
+% compares all users with each other
 % maxCompNum    the maximum number of components of the fromUsers'
 % statistics to be involved in the comparison. In other words, up to what
 % components of statsAll (statsAll{1,1}.stats{1,1}, statsAll{1,1}.stats{2,1},...
 % for the first digraph) is desired to be involved.
-%   The statistics from statsAll is retrieved for fromUsers whose train
+%   The statistics from statsAll is retrieved for users whose train
 %   data is used to find the statistics of the mixture model (mean,
-%   standard deviation, weight vectors, etc.). All toUser's test data is
-%   read and compared with fromUsers to calculate how likely each user
-%   might have generated the user's statistics in fromUsers. The score
+%   standard deviation, weight vectors, etc.). All users' test data is
+%   read and compared with others to calculate how likely each user
+%   might have generated the user's statistics. The score
 %   function uses the Gaussian distance (tol*sigma) measurment and adds up
 %   each time the user's pass rate is above a certain threshold.
 
